@@ -3,7 +3,7 @@ version: '3'
 networks:
   auth:
     external:
-      name: auth.reaction.localhost
+      name: secure.brewline.io
 
 services:
 
@@ -37,36 +37,27 @@ services:
       - "5555:5555"
     environment:
 #      - LOG_LEVEL=debug
-      - OAUTH2_ISSUER_URL=http://localhost:4444
-      - OAUTH2_CONSENT_URL=http://localhost:3000/consent
-      - OAUTH2_LOGIN_URL=http://localhost:3000/login
-      - DATABASE_URL=postgres://hydra:changeme@postgres:5432/hydra?sslmode=disable
-#     Uncomment the following line to use mysql instead.
-#      - DATABASE_URL=mysql://root:secret@tcp(mysqld:3306)/mysql?parseTime=true
-      - SYSTEM_SECRET=youReallyNeedToChangeThis
-      - OAUTH2_SHARE_ERROR_DEBUG=1
-      - OIDC_SUBJECT_TYPES_SUPPORTED=public,pairwise
-      - OIDC_SUBJECT_TYPE_PAIRWISE_SALT=youReallyNeedToChangeThis
+      - OAUTH2_ISSUER_URL=${OAUTH2_ISSUER_URL}
+      - OAUTH2_CONSENT_URL=${OAUTH2_CONSENT_URL}
+      - OAUTH2_LOGIN_URL=${OAUTH2_LOGIN_URL}
+      - DATABASE_URL=${DATABASE_URL}
+      - SYSTEM_SECRET=${SYSTEM_SECRET}
+      - OAUTH2_SHARE_ERROR_DEBUG=${OAUTH2_SHARE_ERROR_DEBUG}
+      - OIDC_SUBJECT_TYPES_SUPPORTED=${OIDC_SUBJECT_TYPES_SUPPORTED}
+      - OIDC_SUBJECT_TYPE_PAIRWISE_SALT=${OIDC_SUBJECT_TYPE_PAIRWISE_SALT}
 #     - OAUTH2_ACCESS_TOKEN_STRATEGY=jwt
     restart: unless-stopped
 
   postgres:
     image: postgres:10.3
     environment:
-      - POSTGRES_USER=hydra
-      - POSTGRES_PASSWORD=changeme
-      - POSTGRES_DB=hydra
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
     ports:
       - 5432
     volumes:
       - postgres-data:/var/lib/postgresql/data
-
-#  Uncomment the following section to use mysql instead.
-#  mysqld:
-#    image: mysql:5.7
-#    environment:
-#      - MYSQL_ROOT_PASSWORD=secret
-#
 
 volumes:
   postgres-data:
