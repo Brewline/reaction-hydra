@@ -1,0 +1,20 @@
+#!/usr/bin/env sh
+
+set -o errexit  # always exit on error
+set -o pipefail # don't ignore exit codes when piping output
+# set -x          # enable debugging
+
+IFS="$(printf "\n\t")"
+
+cd "$(dirname "$0")/.."
+
+printf "Loading environment…"
+set -a # automatically export all variables
+source .env
+set +a
+
+printf "Migrating DB…"
+hydra migrate sql -e
+
+printf "Start server…"
+hydra serve all --dangerous-force-http
