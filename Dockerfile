@@ -4,4 +4,4 @@ ENV DATABASE_URL $DATABASE_URL
 ENV PUBLIC_PORT $PORT
 
 RUN ["hydra", "migrate", "sql", "-e"]
-CMD ["hydra", "serve", "public"]
+CMD ["serve", "public"]
