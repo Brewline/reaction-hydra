@@ -1,3 +1,5 @@
 build:
   docker:
     web: Dockerfile
+run:
+  web: export PUBLIC_PORT=$PORT; hydra serve public

@@ -1,7 +1,5 @@
 FROM oryd/hydra:v1.0.0-beta.9-alpine
 
-ARG PORT
-
 ENV DATABASE_URL=$DATABASE_URL \
     PUBLIC_PORT=$PORT \
     OAUTH2_ISSUER_URL=$OAUTH2_ISSUER_URL \
@@ -15,7 +13,7 @@ ENV DATABASE_URL=$DATABASE_URL \
 
 # ENTRYPOINT ['sh -c']
 
-# CMD ["hydra", "migrate", "sql", "-e"]
-CMD ["serve", "public"]
+RUN ["hydra", "migrate", "sql", "-e"]
+# CMD ["serve", "public"]
 
 # CMD ["hydra", "serve", "public"]
