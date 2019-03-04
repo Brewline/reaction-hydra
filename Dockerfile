@@ -1,7 +1,6 @@
 FROM oryd/hydra:v1.0.0-beta.9-alpine
 
 ENV DATABASE_URL=$DATABASE_URL \
-    PUBLIC_PORT=$PORT \
     OAUTH2_ISSUER_URL=$OAUTH2_ISSUER_URL \
     OAUTH2_CONSENT_URL=$OAUTH2_CONSENT_URL \
     OAUTH2_LOGIN_URL=$OAUTH2_LOGIN_URL \
@@ -16,4 +15,5 @@ ENTRYPOINT ['sh -c']
 # CMD ["hydra", "migrate", "sql", "-e"]
 # CMD ["serve", "public"]
 
-CMD '(export PUBLIC_PORT=$PORT; hydra serve public)'
+RUN export PUBLIC_PORT=$PORT
+CMD hydra serve public
