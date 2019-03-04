@@ -17,4 +17,4 @@ ENTRYPOINT sh -c
 # CMD ["hydra", "migrate", "sql", "-e"]
 # CMD ["serve", "public"]
 
-CMD export PUBLIC_PORT='$PORT' && hydra serve public
+CMD hydra serve public
