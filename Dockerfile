@@ -15,6 +15,6 @@ ENV DATABASE_URL=$DATABASE_URL \
 
 RUN export PUBLIC_PORT=$PORT
 
-# ENTRYPOINT ['sh -c']
+ENTRYPOINT ['hydra']
 
 CMD serve public
