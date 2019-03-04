@@ -13,7 +13,7 @@ ENV DATABASE_URL=$DATABASE_URL \
 
 ENTRYPOINT ['sh -c']
 
-RUN ["hydra", "migrate", "sql", "-e"]
+CMD ["hydra", "migrate", "sql", "-e"]
 # CMD ["serve", "public"]
 
 # CMD ["hydra", "serve", "public"]
