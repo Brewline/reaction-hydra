@@ -15,6 +15,6 @@ ENV DATABASE_URL=$DATABASE_URL \
 
 ARG PUBLIC_PORT=$PORT
 
-ENTRYPOINT hydra
+ENTRYPOINT ["hydra"]
 # ENTRYPOINT /bin/sh -c
 CMD ["serve", "public"]
