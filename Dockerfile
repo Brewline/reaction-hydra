@@ -13,7 +13,7 @@ ENV DATABASE_URL=$DATABASE_URL \
 # CMD ["hydra", "migrate", "sql", "-e"]
 # CMD ["serve", "public"]
 
-ENTRYPOINT /bin/sh
-CMD export PUBLIC_PORT=$PORT; hydra serve public
+# ENTRYPOINT /bin/sh
+CMD (export PUBLIC_PORT=$PORT; hydra serve public)
 
 # CMD ["serve", "public"]
