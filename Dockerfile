@@ -13,9 +13,9 @@ ENV DATABASE_URL=$DATABASE_URL \
     OIDC_SUBJECT_TYPES_SUPPORTED=$OIDC_SUBJECT_TYPES_SUPPORTED \
     OIDC_SUBJECT_TYPE_PAIRWISE_SALT=$OIDC_SUBJECT_TYPE_PAIRWISE_SALT
 
-ENTRYPOINT ['sh -c']
+# ENTRYPOINT ['sh -c']
 
 # CMD ["hydra", "migrate", "sql", "-e"]
-# CMD ["serve", "public"]
+CMD ["serve", "public"]
 
-CMD ["hydra", "serve", "public"]
+# CMD ["hydra", "serve", "public"]
