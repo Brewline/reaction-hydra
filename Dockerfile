@@ -17,4 +17,4 @@ ENTRYPOINT ['hydra']
 
 RUN export PUBLIC_PORT=$PORT
 
-CMD serve public
+CMD ["serve", "public"]
