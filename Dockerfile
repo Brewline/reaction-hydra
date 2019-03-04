@@ -13,7 +13,7 @@ ENV OIDC_SUBJECT_TYPE_PAIRWISE_SALT $OIDC_SUBJECT_TYPE_PAIRWISE_SALT
 
 ENTRYPOINT ["sh", "-c"]
 
-RUN ["hydra", "migrate", "sql", "-e"]
+# CMD ["hydra", "migrate", "sql", "-e"]
 # CMD ["serve", "public"]
 
-CMD "'export PUBLIC_PORT=$PORT; hydra serve public'"
+CMD ["'export PUBLIC_PORT=$PORT; hydra serve public'"]
