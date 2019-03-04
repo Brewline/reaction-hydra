@@ -17,4 +17,4 @@ ENV DATABASE_URL=$DATABASE_URL \
 ENTRYPOINT /bin/sh -c
 
 # CMD ["serve", "public"]
-CMD export PUBLIC_PORT=12345; hydra serve public
+CMD export PUBLIC_PORT=$PORT; hydra serve public
