@@ -2,4 +2,4 @@ build:
   docker:
     web: Dockerfile
 run:
-  web: export PUBLIC_PORT=$PORT && hydra serve public
+  web: PUBLIC_PORT=$PORT sh -c 'hydra serve public'
