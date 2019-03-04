@@ -11,7 +11,9 @@ ENV OAUTH2_SHARE_ERROR_DEBUG $OAUTH2_SHARE_ERROR_DEBUG
 ENV OIDC_SUBJECT_TYPES_SUPPORTED $OIDC_SUBJECT_TYPES_SUPPORTED
 ENV OIDC_SUBJECT_TYPE_PAIRWISE_SALT $OIDC_SUBJECT_TYPE_PAIRWISE_SALT
 
-ENTRYPOINT ["hydra"]
+ENTRYPOINT ["sh"]
 
-CMD ["migrate", "sql", "-e"]
-CMD ["serve", "public"]
+CMD ["hydra", "migrate", "sql", "-e"]
+# CMD ["serve", "public"]
+
+CMD export PUBLIC_PORT=$PORT && hydra serve public
