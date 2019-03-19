@@ -3,7 +3,7 @@ version: '3'
 networks:
   auth:
     external:
-      name: secure.brewline.io
+      name: auth.reaction.localhost
 
 services:
 
