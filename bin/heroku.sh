@@ -10,4 +10,5 @@ export OIDC_SUBJECT_TYPES_SUPPORTED=$OIDC_SUBJECT_TYPES_SUPPORTED
 export OIDC_SUBJECT_TYPE_PAIRWISE_SALT=$OIDC_SUBJECT_TYPE_PAIRWISE_SALT
 export PUBLIC_PORT=$PORT
 
-hydra serve public
+# I know, I know, but the outer connection (client-heroku) is secure
+hydra serve public --dangerous-force-http
